@@ -47,21 +47,17 @@ export const stockBadgeClass = (stock: string) => {
 
 function generateProducts(): Product[] {
   const data: Product[] = [];
-
-  const fragranceTypes = ["Eau de Parfum", "Eau de Toilette", "Parfum", "Cologne"];
-  const fragranceNotes = ["Intense", "Fresh", "Noir", "Rose", "Citrus", "Woody"];
-  const sizes = ["30ml", "50ml", "75ml", "100ml", "150ml"];
-
-  // Fragrance (400 items for demo, scaled from 4000)
-  for(let i=0; i<400; i++) {
+  
+  // Fragrance (50 items)
+  for(let i=0; i<50; i++) {
     const brand = brands[Math.floor(Math.random()*brands.length)];
     const cost = +(Math.random()*242+8).toFixed(2);
     data.push({
       sku: `CSP-FRG-${String(i+1).padStart(5,'0')}`,
       brand,
       category: "Fragrance",
-      name: `${brand} ${fragranceTypes[Math.floor(Math.random()*fragranceTypes.length)]} ${fragranceNotes[Math.floor(Math.random()*fragranceNotes.length)]} ${sizes[Math.floor(Math.random()*sizes.length)]}`,
-      size: sizes[Math.floor(Math.random()*sizes.length)],
+      name: `${brand} Eau de Parfum ${["Intense","Fresh","Noir"][Math.floor(Math.random()*3)]} ${["30ml","50ml","100ml"][Math.floor(Math.random()*3)]}`,
+      size: ["30ml","50ml","100ml"][Math.floor(Math.random()*3)],
       cost,
       wholesale: +(cost/0.75).toFixed(2),
       margin: 25,
@@ -71,19 +67,17 @@ function generateProducts(): Product[] {
       gs1: `600${Math.floor(Math.random()*899999999+100000000)}`
     });
   }
-
-  // Skincare (300 items)
-  const skincareTypes = ["Moisturizer", "Serum", "Cleanser", "Toner", "Eye Cream", "Face Mask", "Exfoliator", "Sunscreen"];
-  const skincareSizes = ["15ml", "30ml", "50ml", "75ml", "100ml"];
-  for(let i=0; i<300; i++) {
+  
+  // Skincare (50 items)
+  for(let i=0; i<50; i++) {
     const brand = brands[Math.floor(Math.random()*brands.length)];
     const cost = +(Math.random()*175+5).toFixed(2);
     data.push({
       sku: `CSP-SKN-${String(i+1).padStart(5,'0')}`,
       brand,
       category: "Skincare",
-      name: `${brand} ${skincareTypes[Math.floor(Math.random()*skincareTypes.length)]} ${skincareSizes[Math.floor(Math.random()*skincareSizes.length)]}`,
-      size: skincareSizes[Math.floor(Math.random()*skincareSizes.length)],
+      name: `${brand} ${["Moisturizer","Serum","Cleanser","Toner"][Math.floor(Math.random()*4)]} ${["30ml","50ml","100ml"][Math.floor(Math.random()*3)]}`,
+      size: ["30ml","50ml","100ml"][Math.floor(Math.random()*3)],
       cost,
       wholesale: +(cost/0.75).toFixed(2),
       margin: 25,
@@ -93,19 +87,17 @@ function generateProducts(): Product[] {
       gs1: `600${Math.floor(Math.random()*899999999+100000000)}`
     });
   }
-
-  // Makeup (250 items)
-  const makeupTypes = ["Foundation", "Concealer", "Mascara", "Lipstick", "Eyeshadow Palette", "Blush", "Bronzer", "Highlighter"];
-  const shades = ["Natural", "Beige", "Nude", "Red", "Pink"];
-  for(let i=0; i<250; i++) {
+  
+  // Makeup (50 items)
+  for(let i=0; i<50; i++) {
     const brand = brands[Math.floor(Math.random()*brands.length)];
     const cost = +(Math.random()*116+4).toFixed(2);
     data.push({
       sku: `CSP-MKP-${String(i+1).padStart(5,'0')}`,
       brand,
       category: "Makeup",
-      name: `${brand} ${makeupTypes[Math.floor(Math.random()*makeupTypes.length)]} ${shades[Math.floor(Math.random()*shades.length)]}`,
-      size: ["5ml", "10ml", "15ml", "30ml", "N/A"][Math.floor(Math.random()*5)],
+      name: `${brand} ${["Foundation","Lipstick","Mascara","Eyeshadow"][Math.floor(Math.random()*4)]} ${["Natural","Nude","Red"][Math.floor(Math.random()*3)]}`,
+      size: ["5ml","10ml","15ml"][Math.floor(Math.random()*3)],
       cost,
       wholesale: +(cost/0.75).toFixed(2),
       margin: 25,
@@ -115,18 +107,17 @@ function generateProducts(): Product[] {
       gs1: `600${Math.floor(Math.random()*899999999+100000000)}`
     });
   }
-
-  // Haircare (80 items)
-  const hairTypes = ["Shampoo", "Conditioner", "Hair Mask", "Hair Oil", "Styling Cream", "Hairspray"];
-  for(let i=0; i<80; i++) {
+  
+  // Haircare (20 items)
+  for(let i=0; i<20; i++) {
     const brand = brands[Math.floor(Math.random()*brands.length)];
     const cost = +(Math.random()*74+6).toFixed(2);
     data.push({
       sku: `CSP-HRC-${String(i+1).padStart(5,'0')}`,
       brand,
       category: "Haircare",
-      name: `${brand} ${hairTypes[Math.floor(Math.random()*hairTypes.length)]} ${["100ml","200ml","250ml","400ml","500ml"][Math.floor(Math.random()*5)]}`,
-      size: ["100ml","200ml","250ml","400ml","500ml"][Math.floor(Math.random()*5)],
+      name: `${brand} ${["Shampoo","Conditioner","Hair Mask"][Math.floor(Math.random()*3)]} ${["200ml","250ml","500ml"][Math.floor(Math.random()*3)]}`,
+      size: ["200ml","250ml","500ml"][Math.floor(Math.random()*3)],
       cost,
       wholesale: +(cost/0.75).toFixed(2),
       margin: 25,
@@ -136,18 +127,17 @@ function generateProducts(): Product[] {
       gs1: `600${Math.floor(Math.random()*899999999+100000000)}`
     });
   }
-
-  // Body Care (50 items)
-  const bodyTypes = ["Body Lotion", "Body Wash", "Body Scrub", "Body Butter", "Hand Cream"];
-  for(let i=0; i<50; i++) {
+  
+  // Body Care (10 items)
+  for(let i=0; i<10; i++) {
     const brand = brands[Math.floor(Math.random()*brands.length)];
     const cost = +(Math.random()*55+5).toFixed(2);
     data.push({
       sku: `CSP-BDC-${String(i+1).padStart(5,'0')}`,
       brand,
       category: "Body Care",
-      name: `${brand} ${bodyTypes[Math.floor(Math.random()*bodyTypes.length)]} ${["100ml","200ml","250ml","400ml"][Math.floor(Math.random()*4)]}`,
-      size: ["100ml","200ml","250ml","400ml"][Math.floor(Math.random()*4)],
+      name: `${brand} ${["Body Lotion","Body Wash","Body Scrub"][Math.floor(Math.random()*3)]} ${["200ml","250ml","400ml"][Math.floor(Math.random()*3)]}`,
+      size: ["200ml","250ml","400ml"][Math.floor(Math.random()*3)],
       cost,
       wholesale: +(cost/0.75).toFixed(2),
       margin: 25,
@@ -157,18 +147,17 @@ function generateProducts(): Product[] {
       gs1: `600${Math.floor(Math.random()*899999999+100000000)}`
     });
   }
-
-  // Men's Grooming (20 items)
-  const menTypes = ["Beard Oil", "Shaving Cream", "Face Wash", "Moisturizer", "Body Wash"];
-  for(let i=0; i<20; i++) {
+  
+  // Men's Grooming (5 items)
+  for(let i=0; i<5; i++) {
     const brand = brands[Math.floor(Math.random()*brands.length)];
     const cost = +(Math.random()*64+6).toFixed(2);
     data.push({
       sku: `CSP-MGR-${String(i+1).padStart(5,'0')}`,
       brand,
       category: "Men's Grooming",
-      name: `${brand} Men ${menTypes[Math.floor(Math.random()*menTypes.length)]}`,
-      size: ["50ml","100ml","150ml","200ml"][Math.floor(Math.random()*4)],
+      name: `${brand} Men ${["Face Wash","Moisturizer","Body Wash"][Math.floor(Math.random()*3)]}`,
+      size: ["50ml","100ml","150ml"][Math.floor(Math.random()*3)],
       cost,
       wholesale: +(cost/0.75).toFixed(2),
       margin: 25,
@@ -178,18 +167,17 @@ function generateProducts(): Product[] {
       gs1: `600${Math.floor(Math.random()*899999999+100000000)}`
     });
   }
-
-  // Sun Care (5 items)
-  const sunTypes = ["Sunscreen SPF 30", "Sunscreen SPF 50", "After Sun Lotion", "Tanning Oil"];
-  for(let i=0; i<5; i++) {
+  
+  // Sun Care (2 items)
+  for(let i=0; i<2; i++) {
     const brand = brands[Math.floor(Math.random()*brands.length)];
     const cost = +(Math.random()*37+8).toFixed(2);
     data.push({
       sku: `CSP-SNC-${String(i+1).padStart(5,'0')}`,
       brand,
       category: "Sun Care",
-      name: `${brand} ${sunTypes[Math.floor(Math.random()*sunTypes.length)]}`,
-      size: ["50ml","100ml","150ml","200ml"][Math.floor(Math.random()*4)],
+      name: `${brand} ${["Sunscreen SPF 30","Sunscreen SPF 50"][Math.floor(Math.random()*2)]}`,
+      size: ["50ml","100ml","150ml"][Math.floor(Math.random()*3)],
       cost,
       wholesale: +(cost/0.75).toFixed(2),
       margin: 25,
@@ -199,17 +187,16 @@ function generateProducts(): Product[] {
       gs1: `600${Math.floor(Math.random()*899999999+100000000)}`
     });
   }
-
-  // Tools & Brushes (3 items)
-  const toolTypes = ["Makeup Brush Set", "Beauty Blender", "Eyelash Curler", "Tweezers"];
-  for(let i=0; i<3; i++) {
+  
+  // Tools & Brushes (2 items)
+  for(let i=0; i<2; i++) {
     const brand = brands[Math.floor(Math.random()*brands.length)];
     const cost = +(Math.random()*80+5).toFixed(2);
     data.push({
       sku: `CSP-TLS-${String(i+1).padStart(5,'0')}`,
       brand,
       category: "Tools & Brushes",
-      name: `${brand} ${toolTypes[Math.floor(Math.random()*toolTypes.length)]}`,
+      name: `${brand} ${["Makeup Brush Set","Beauty Blender"][Math.floor(Math.random()*2)]}`,
       size: "N/A",
       cost,
       wholesale: +(cost/0.75).toFixed(2),
@@ -220,17 +207,16 @@ function generateProducts(): Product[] {
       gs1: `600${Math.floor(Math.random()*899999999+100000000)}`
     });
   }
-
-  // Sets & Kits (2 items)
-  const setTypes = ["Gift Set", "Travel Set", "Discovery Kit", "Luxury Collection"];
-  for(let i=0; i<2; i++) {
+  
+  // Sets & Kits (1 item)
+  for(let i=0; i<1; i++) {
     const brand = brands[Math.floor(Math.random()*brands.length)];
     const cost = +(Math.random()*275+25).toFixed(2);
     data.push({
       sku: `CSP-SET-${String(i+1).padStart(5,'0')}`,
       brand,
       category: "Sets & Kits",
-      name: `${brand} ${setTypes[Math.floor(Math.random()*setTypes.length)]}`,
+      name: `${brand} ${["Gift Set","Travel Set"][Math.floor(Math.random()*2)]}`,
       size: "Multi",
       cost,
       wholesale: +(cost/0.75).toFixed(2),
@@ -241,7 +227,7 @@ function generateProducts(): Product[] {
       gs1: `600${Math.floor(Math.random()*899999999+100000000)}`
     });
   }
-
+  
   return data;
 }
 
@@ -268,11 +254,11 @@ export function filterProducts(
     const matchesStock = selectedStock.includes(p.stock);
     return matchesSearch && matchesCat && matchesBrand && matchesPrice && matchesStock;
   });
-
+  
   if(sort === 'price-low') filtered.sort((a,b) => a.wholesale - b.wholesale);
   else if(sort === 'price-high') filtered.sort((a,b) => b.wholesale - a.wholesale);
   else if(sort === 'brand') filtered.sort((a,b) => a.brand.localeCompare(b.brand));
   else filtered.sort((a,b) => a.name.localeCompare(b.name));
-
+  
   return filtered;
 }
