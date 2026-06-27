@@ -11,7 +11,7 @@ export default function Hero({ productCount }: HeroProps) {
       <div className="relative z-10">
         <h1 className="font-serif text-3xl md:text-4xl font-semibold mb-3">Wholesale Beauty, Simplified</h1>
         <p className="text-base opacity-80 max-w-lg">
-          1,100+ premium products from 30 global brands. Real-time stock synced from ClickUp. 25% margin locked.
+          1,100+ premium products from 30 global brands. Real-time stock synced from ClickUp.
         </p>
         <div className="flex flex-wrap gap-8 mt-6">
           <div className="text-center">
@@ -21,10 +21,6 @@ export default function Hero({ productCount }: HeroProps) {
           <div className="text-center">
             <div className="text-2xl md:text-3xl font-bold text-gold-light">30</div>
             <div className="text-xs uppercase tracking-widest opacity-70 mt-1">Brands</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl md:text-3xl font-bold text-gold-light">25%</div>
-            <div className="text-xs uppercase tracking-widest opacity-70 mt-1">Margin</div>
           </div>
           <div className="text-center">
             <div className="text-2xl md:text-3xl font-bold text-gold-light">48h</div>
